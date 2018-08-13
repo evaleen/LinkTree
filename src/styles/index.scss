@@ -1,0 +1,13 @@
+@import './colours.scss';
+@import './button.scss';
+@import './header.scss';
+@import './whitespace.scss';
+@import './font.scss';
+
+$side-bar-width: 60px;
+
+.app {
+  margin-left: $side-bar-width;
+  overflow: hidden;
+  background-color: $primary-background-colour;
+}

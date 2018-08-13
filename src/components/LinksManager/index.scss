@@ -1,0 +1,27 @@
+@import "../../styles/index.scss";
+
+.links-manager {
+  height: calc(100vh - #{$header-height});
+  overflow: scroll;
+}
+
+.links-manager-content {
+  position: relative;
+  padding-bottom: $whitespace-10;
+  max-width: 700px;
+  padding: $whitespace-2 $whitespace-5 $whitespace-20;
+  margin: 0 auto;
+}
+
+.add-new-button {
+  margin-top: $whitespace-8;
+  position: relative;
+}
+
+.link-title {
+  font-size: $font-xl;
+  letter-spacing: 1px;
+  margin: 2em auto 1em;
+  font-weight: $font-heavy;
+  text-align: center;
+}

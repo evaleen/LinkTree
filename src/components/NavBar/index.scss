@@ -1,0 +1,38 @@
+@import "../../styles/index.scss";
+
+$border-bottom-width: 3px;
+$nav-bar-height: calc(#{$header-height} - #{$border-bottom-width});
+
+.nav-bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.07);
+}
+
+.nav-link {
+  height: $nav-bar-height;
+  color: $primary-text-colour;
+  font-size: $font-lg;
+  font-weight: $font-thin;
+  letter-spacing: 1.5px;
+  text-decoration: none;
+  padding: 0 $whitespace-2 0 $whitespace-3;
+  line-height: $nav-bar-height;
+  cursor: pointer;
+}
+
+.nav-link.inactive:after {
+  display: block;
+  content: '';
+  border-bottom: solid $border-bottom-width grey;  
+  transform: scaleX(0);  
+  transition: transform 250ms ease-in-out;
+}
+.nav-link.inactive:hover:after {
+  transform: scaleX(1);
+}
+
+.nav-link.active {
+  border-bottom: $border-bottom-width solid $primary-text-colour;
+}

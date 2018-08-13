@@ -1,0 +1,65 @@
+@import "../../../styles/index.scss";
+
+$body-space: 30px;
+
+.action-content {
+
+  &-header {
+    width: 100%;
+    background-color: $tertiary-background-colour;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    text-align: center;
+    position: relative;
+
+    h5 {
+      padding: $whitespace-3 0;
+      margin: 0;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+    }
+  }
+
+  &-close-button {
+    border: none;
+    background-color: inherit;
+    outline: none;
+    position: absolute;
+    right: 0;
+    top: $whitespace-2;
+  }
+
+  &-body {
+    background-color: $near-white;
+    padding: $body-space 0;
+    text-align: center;
+
+    p {
+      padding-bottom: $body-space;
+      margin: 0 auto;
+      max-width: 400px;
+      font-size: $font-sm;
+      line-height: 24px;
+      letter-spacing: 1px;
+      color: $primary-text-colour;
+    }
+  }
+
+  &-buttons {
+    margin: 0 auto;
+  }
+
+  &-action-button {
+    color: $near-black;
+    padding: $whitespace-2 $whitespace-3;
+    display: inline-block;
+    cursor: pointer;
+    font-weight: $font-thin;
+    border: 2px solid transparent;
+    vertical-align: middle;
+    font-size: $font-sm;
+  }
+
+  &-action-button-primary {
+    border: 2px solid $near-black;
+  }
+}

@@ -1,0 +1,39 @@
+@import "../../../styles/index.scss";
+
+.link-input {
+  display: flex;
+  align-items: center;
+  height: $whitespace-5;
+  padding-top: $whitespace-1;
+  &-empty {
+    opacity: 0.4;
+  }
+
+  &-error {
+    color: $error-colour !important;
+  }
+}
+
+.link-data-edit {
+  font-size: $font-md;
+  line-height: 1.5;
+  max-width: 300px;
+  overflow: hidden;
+
+  &-input {
+    border: none;
+    outline: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  &-text {
+    display: inline;
+  }
+}
+
+.edit-image {
+  height: 70%;
+  width: auto;
+  margin-left: $whitespace-2;
+}

@@ -1,0 +1,15 @@
+
+.admin {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.links-manager-section {
+  flex: 3;
+}
+.live-preview-section {
+  flex: 2;
+}

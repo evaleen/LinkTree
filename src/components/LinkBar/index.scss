@@ -1,0 +1,57 @@
+@import "../../styles/index.scss";
+
+.link-bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+}
+
+.link-label {
+  border-left: 2px solid $secondary-background-colour;
+  margin-right:$whitespace-1;
+  padding: $whitespace-3 0 $whitespace-2 $whitespace-3;
+  font-size: $font-md;
+  text-align: center;
+  font-weight: $font-thin;
+  color: $primary-text-colour;
+}
+
+.user-link {
+  color: $primary-text-colour;
+  padding: 0 $whitespace-3 0 $whitespace-3;
+  margin: 0 $whitespace-4;
+  border-radius: 19px;
+  background-color: $primary-background-colour;
+  font-size: $font-md;
+  width: 60%;
+  overflow: hidden;
+  position: relative;
+}
+
+.link {
+  margin: $whitespace-5 $whitespace-1 $whitespace-5 0;
+  line-height: 38px;
+  text-decoration: none;
+  color: $primary-text-colour;
+  letter-spacing: 1.5px;
+  font-weight: $font-thin;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+.copy-button {
+  border-radius: 50% !important;
+  width: 37px;
+  height: 37px;
+  position: absolute; 
+  right: 0;
+}
+
+.copy-button-img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+}

@@ -1,0 +1,39 @@
+@import "./colours.scss";
+@import "./whitespace.scss";
+@import "./font.scss";
+
+.btn-primary {
+  background-color: $primary-colour;
+  color: $secondary-text-colour;
+  font-weight: $font-heavy;
+  letter-spacing: 0;
+  border: 2px solid $primary-colour;
+  text-align: center;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all .25s cubic-bezier(.08,.59,.29,.99);
+  outline: 0;
+  border-radius: 0;
+  display: inline-block;
+  line-height: 1.5;
+}
+
+.btn-primary:hover {
+  opacity: 0.8;
+}
+
+.btn-large {
+  padding: $whitespace-3 $whitespace-7;
+  text-transform: uppercase;
+  width: 100%;
+  font-size: $font-md;
+  font-weight: $font-thin;
+}
+
+.btn-med {
+  padding: $whitespace-2 $whitespace-4;
+  text-transform: uppercase;
+  font-size: $font-sm;
+  font-weight: $font-thin;
+
+}

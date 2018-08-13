@@ -1,0 +1,65 @@
+@import "../../styles/index.scss";
+
+$border-radius: 3px;
+$handle-colour: $near-black;
+$drag-section-width: 30px;
+
+.link-editor {
+  position: relative;
+  min-height: 82px;
+  display: block;
+  margin-bottom: 3px;
+  -webkit-filter: grayscale(0);
+  filter: grayscale(0);
+  background-color: $white;
+  border-top-right-radius: $border-radius;
+  border-bottom-right-radius: $border-radius;
+  cursor: default;
+}
+
+.drag-section {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: $drag-section-width;
+  float: none;
+  height: 100%;
+  cursor: move;
+  text-align: center;
+  background-color: $handle-colour;
+  border-top-left-radius: $border-radius;
+  border-bottom-left-radius: $border-radius;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.edit-section {
+  width: calc(100% - #{$drag-section-width});
+  margin-left: $drag-section-width;
+  padding: $whitespace-1 0;
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.link-inputs {
+  padding-left: $whitespace-4;
+}
+
+
+.link-actions {
+  padding-right: $whitespace-1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.action-buttons {
+  padding-top: $whitespace-5;
+}
+
+.action-content-wrapper {
+  margin-left: $drag-section-width;
+}

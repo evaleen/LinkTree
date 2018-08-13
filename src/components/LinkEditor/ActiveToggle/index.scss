@@ -1,0 +1,51 @@
+@import "../../../styles/index.scss";
+
+$toggle-bg-size: 20px;
+$toggle-size: calc(#{$toggle-bg-size} - 2px);
+
+.active-toggle {
+  display: flex;
+}
+
+.toggle-bg {
+  width: 44px;
+  height: $toggle-bg-size;
+  cursor: pointer;
+  border-radius: calc(#{$toggle-bg-size} / 2);
+  position: relative;
+
+  &-active {
+    background-color: $primary-colour;
+  }
+
+  &-inactive {
+    background-color: $inactive-colour;
+  }
+
+  &-unsafe {
+    background-color: $unsafe-colour;
+  }
+}
+
+.unsafe-warning {
+  height: $toggle-bg-size;
+  width: auto;
+  margin-right:$whitespace-1;
+}
+
+.toggle {
+  width: $toggle-size;
+  height: $toggle-size;
+  border-radius: calc(#{$toggle-size} / 2);
+  top: 1px;
+  background-color: $white;
+  position: absolute;
+
+  &-on {
+    right: 1px;
+  }
+
+  &-off {
+    left: 1px;
+  }
+}

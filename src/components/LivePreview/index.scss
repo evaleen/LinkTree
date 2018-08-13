@@ -1,0 +1,33 @@
+@import "../../styles/index.scss";
+
+.live-preview {
+  background-color: $secondary-background-colour;
+  height: 100vh;
+  position: relative;
+}
+
+.preview-title {
+  margin: 0 auto;
+  text-align: center;
+  text-transform: uppercase;
+  padding: $whitespace-6 0;
+  text-transform: uppercase;
+  font-weight: $font-heavy;
+  letter-spacing: 1px;
+  font-size: $font-xs;
+  color: $tertiary-text-colour;
+  font-weight: $font-thin;
+}
+
+.preview-image {
+  max-width: 50%;
+  max-height: 65%;
+  height: auto;
+  width: auto\9;
+  transition: all 0.5s cubic-bezier(0.08, 0.59, 0.29, 0.99) 0.2s;
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  -webkit-transform: translateY(-50%) translateX(-50%);
+  transform: translateY(-50%) translateX(-50%);
+}
