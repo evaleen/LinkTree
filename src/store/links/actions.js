@@ -79,9 +79,9 @@ export function create(links) {
   const newLink = {
     id,
     deleted: 0,
-    active: 0,
+    active: 1,
     highlight: "wobble",
-    unsafe: 0,
+    unsafe: 1,
     url: "",
     title: "",
     position,

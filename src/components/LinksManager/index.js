@@ -11,6 +11,15 @@ const AddNewLinkButton = ({ onClick }) => {
   );
 };
 
+const EmptyLinksMessage = () => {
+  return (
+    <section className="empty-link-message">
+      <p>You don't have any links to display.</p>
+      <p>Click the buton above to add one.</p>
+    </section>
+  );
+}
+
 export default class LinksManager extends Component {
   render() {
     const { links, create, reposition, update, remove } = this.props;
@@ -19,12 +28,18 @@ export default class LinksManager extends Component {
         <div className="links-manager-content">
           <AddNewLinkButton onClick={create} />
           <h3 className="link-title">{"My Links"}</h3>
-          <LinksDnD
+          {links.length === 0 ? (
+            <EmptyLinksMessage data-test="LinksManager-EmptyLinksMessage" />
+          ) : (
+            <LinksDnD
             links={links}
             reposition={reposition}
             update={update}
             remove={remove}
+            data-test="LinksManager-LinksDnD"
           />
+          )}
+
         </div>
       </section>
     );

@@ -25,3 +25,13 @@
   font-weight: $font-heavy;
   text-align: center;
 }
+
+.empty-link-message {
+  text-align: center;
+  margin: 0 auto;
+  color: $primary-text-colour;
+  font-size: $font-lg;
+  line-height: 1.5em;
+  margin: 1.2rem 0;
+  letter-spacing: 1.5px;
+}
