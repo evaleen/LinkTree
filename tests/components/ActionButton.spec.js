@@ -40,8 +40,15 @@ describe("LinkEditor", () => {
       .to.be.false;
   });
 
-  it("should call the onClick function passed as a prop with the type as a parameter when the button is clicked", () => {
+  it("should call the onClick function passed as a prop with the type as a parameter when the button is clicked and isActive is true", () => {
+    wrapper.setProps({ isActive: false });
     wrapper.find({ "data-test": "ActionButton" }).simulate('click');
     expect(onClickSpy.calledOnceWith(type)).to.be.true;
+  });
+
+  it("should call the onClick function passed as a prop with undefined as a parameter when the button is clicked and isActive is false", () => {
+    wrapper.setProps({ isActive: true });
+    wrapper.find({ "data-test": "ActionButton" }).simulate('click');
+    expect(onClickSpy.calledOnceWith(undefined)).to.be.true;
   });
 });

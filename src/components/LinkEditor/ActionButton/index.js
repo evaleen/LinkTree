@@ -4,8 +4,8 @@ import "./index.scss";
 
 export default class ActionButton extends Component {
   onClick = () => {
-    const { onClick, type } = this.props;
-    onClick(type);
+    const { onClick, type, isActive } = this.props;
+    onClick(isActive ? undefined : type);
   };
   render() {
     const { type, isActive } = this.props;
