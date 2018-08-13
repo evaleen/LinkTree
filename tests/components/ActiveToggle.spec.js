@@ -9,7 +9,7 @@ Enzyme.configure({ adapter: new Adapter() });
 
 const id = 0;
 
-describe("LinkEditor", () => {
+describe("ActiveToggle", () => {
   let wrapper;
   let updateSpy;
 
@@ -84,19 +84,15 @@ describe("LinkEditor", () => {
     expect(updateSpy.calledOnceWith(id, { active: 0 })).to.be.true;
   });
 
-  it("should pass the class name toggle-on to toggle if the isActive prop is true", () => {
+  it("should pass the class name on to toggle if the isActive prop is true", () => {
     wrapper.setProps({ isActive: true });
-    expect(
-      wrapper.find({ "data-test": "ActiveToggle-toggle" }).hasClass("toggle-on")
-    ).to.be.true;
+    expect(wrapper.find({ "data-test": "ActiveToggle-toggle" }).hasClass("on"))
+      .to.be.true;
   });
 
-  it("should pass the class name toggle-off to toggle if the isActive prop is false", () => {
+  it("should pass the class name off to toggle if the isActive prop is false", () => {
     wrapper.setProps({ isActive: false });
-    expect(
-      wrapper
-        .find({ "data-test": "ActiveToggle-toggle" })
-        .hasClass("toggle-off")
-    ).to.be.true;
+    expect(wrapper.find({ "data-test": "ActiveToggle-toggle" }).hasClass("off"))
+      .to.be.true;
   });
 });
