@@ -28,7 +28,10 @@ export default class ActiveToggle extends Component {
           data-test="ActiveToggle-toggle-bg"
           onClick={this.update}
         >
-          <div className={`toggle toggle-${isActive ? "on" : "off"}`} data-test="ActiveToggle-toggle" />
+          <div
+            className={`toggle ${isActive ? "on" : "off"}`}
+            data-test="ActiveToggle-toggle"
+          />
         </div>
       </div>
     );
