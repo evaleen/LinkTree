@@ -15,7 +15,6 @@ $nav-bar-height: calc(#{$header-height} - #{$border-bottom-width});
   color: $primary-text-colour;
   font-size: $font-lg;
   font-weight: $font-thin;
-  letter-spacing: 1.5px;
   text-decoration: none;
   padding: 0 $whitespace-2 0 $whitespace-3;
   line-height: $nav-bar-height;
