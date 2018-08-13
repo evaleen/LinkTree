@@ -31,9 +31,9 @@ export default class ActionContent extends Component {
   };
 
   render() {
-    const { content, action } = this.props;
+    const { content, action, isActive } = this.props;
     return (
-      <div className="action-content">
+      <div className={`action-content ${!isActive && 'hide'}`} data-test="ActionContent">
         <div className="action-content-header" data-test="ActionContent-header">
           <h5>{content.title}</h5>
           <button
@@ -47,7 +47,10 @@ export default class ActionContent extends Component {
         <div className="action-content-body" data-test="ActionContent-body">
           <p>{content.description}</p>
           {action ? (
-            <div className="action-content-buttons" data-test="ActionContent-ActionButtons">
+            <div
+              className="action-content-buttons"
+              data-test="ActionContent-ActionButtons"
+            >
               <ActionButton name="Cancel" onClick={this.onClose} />
               <ActionButton
                 primary
@@ -71,5 +74,6 @@ ActionContent.propTypes = {
   }).isRequired,
   onClose: PropTypes.func.isRequired,
   action: PropTypes.oneOfType([PropTypes.func, PropTypes.bool]),
-  id: PropTypes.number.isRequired
+  id: PropTypes.number.isRequired,
+  isActive: PropTypes.bool.isRequired
 };

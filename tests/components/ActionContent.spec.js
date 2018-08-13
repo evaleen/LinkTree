@@ -13,7 +13,7 @@ const content = {
   description: "Action content desc"
 };
 
-describe("LinkEditor", () => {
+describe("ActionContent", () => {
   let wrapper;
   let onCloseSpy;
   let actionSpy;
@@ -27,6 +27,7 @@ describe("LinkEditor", () => {
       onClose={onCloseSpy}
       action={false}
       id={0}
+      isActive={true}
     />
   );
 });
@@ -75,5 +76,15 @@ describe("LinkEditor", () => {
     wrapper.setProps({ action: actionSpy });
     wrapper.find({ "data-test": "ActionButton" }).at(1).simulate('click');
     expect(actionSpy.calledOnce).to.be.true;
+  });
+
+  it("should give ActionContent a class of hide if isActive is false", () => {
+    wrapper.setProps({ isActive: false });
+    expect(wrapper.find({ "data-test": "ActionContent" }).hasClass('hide')).to.be.true;
+  });
+
+  it("should not give ActionContent a class of hide if isActive is true", () => {
+    wrapper.setProps({ isActive: true });
+    expect(wrapper.find({ "data-test": "ActionContent" }).hasClass('hide')).to.be.false;
   });
 });

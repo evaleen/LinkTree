@@ -48,7 +48,6 @@ $drag-section-width: 30px;
   padding-left: $whitespace-4;
 }
 
-
 .link-actions {
   padding-right: $whitespace-1;
   display: flex;
@@ -62,4 +61,12 @@ $drag-section-width: 30px;
 
 .action-content-wrapper {
   margin-left: $drag-section-width;
+  max-height: 0;
+  transition: max-height 0.2s ease-out;
+  overflow: hidden;
+
+  &.show {
+    max-height: 500px;
+    transition: max-height 0.2s ease-in;
+  }
 }

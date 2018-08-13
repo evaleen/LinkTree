@@ -3,6 +3,11 @@
 $body-space: 30px;
 
 .action-content {
+
+  &.hide {
+    display: none;
+  }
+
   &-header {
     width: 100%;
     background-color: $tertiary-background-colour;

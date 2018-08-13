@@ -95,17 +95,21 @@ export default class LinkEditor extends Component {
             </div>
           </div>
         </div>
-        {content && (
-          <div className="action-content-wrapper">
-            <ActionContent
-              content={actionTypes[content]}
-              onClose={this.setContent}
-              action={content === "delete" && remove}
-              id={link.id}
-              data-test="LinkEditor-ActionContent"
-            />
-          </div>
-        )}
+        <div className={`action-content-wrapper ${content ? "show" : "hide"}`}>
+          {Object.keys(actionTypes).map((type, index) => {
+            return (
+              <ActionContent
+                key={index}
+                id={link.id}
+                content={actionTypes[type]}
+                onClose={this.setContent}
+                isActive={content === type}
+                action={content === "delete" && remove}
+                data-test="LinkEditor-ActionContent"
+              />
+            );
+          })}
+        </div>
       </section>
     );
   }

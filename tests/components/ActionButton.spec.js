@@ -9,7 +9,7 @@ Enzyme.configure({ adapter: new Adapter() });
 
 const type = "schedule";
 
-describe("LinkEditor", () => {
+describe("ActionButton", () => {
   let wrapper;
   let onClickSpy;
 

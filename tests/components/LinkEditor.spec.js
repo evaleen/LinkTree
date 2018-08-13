@@ -42,28 +42,22 @@ describe("LinkEditor", () => {
     );
   });
 
-  it("should not render ActionContent component by default", () => {
-    expect(wrapper.find({ "data-test": "LinkEditor-ActionContent" }).exists())
-      .to.be.false;
-  });
-
-  it("should render the ActionContent when the content state is set", () => {
-    wrapper.setState({ content: Object.keys(actionTypes)[0] });
-    expect(wrapper.find({ "data-test": "LinkEditor-ActionContent" }).exists())
-      .to.be.true;
-  });
-
-  it("should pass the remove function as the action prop to ActiveToggle if the content is delete", () => {
-    wrapper.setState({ content: "delete" });
+  it("should pass the isActive prop to true to the ActionContent for the content set in state", () => {
+    wrapper.setState({ content: Object.keys(actionTypes)[2] });
     expect(
-      wrapper.find({ "data-test": "LinkEditor-ActionContent" }).props().action
-    ).to.eql(removeFunc);
+      wrapper
+        .find({ "data-test": "LinkEditor-ActionContent" })
+        .at(2)
+        .prop("isActive")
+    ).to.be.true;
   });
 
   it("should pass the false as the action prop to ActiveToggle if the content is not delete", () => {
-    wrapper.setState({ content: "schedule" });
     expect(
-      wrapper.find({ "data-test": "LinkEditor-ActionContent" }).props().action
+      wrapper
+        .find({ "data-test": "LinkEditor-ActionContent" })
+        .at(0)
+        .prop("action")
     ).to.be.false;
   });
 
