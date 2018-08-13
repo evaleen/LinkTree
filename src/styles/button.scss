@@ -2,6 +2,12 @@
 @import "./whitespace.scss";
 @import "./font.scss";
 
+button {
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
 .btn-primary {
   background-color: $primary-colour;
   color: $secondary-text-colour;
@@ -10,7 +16,6 @@
   border: 2px solid $primary-colour;
   text-align: center;
   overflow: hidden;
-  cursor: pointer;
   transition: all .25s cubic-bezier(.08,.59,.29,.99);
   outline: 0;
   border-radius: 0;
