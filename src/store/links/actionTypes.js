@@ -1,10 +1,14 @@
 export default {
-  FETCHING_LINKS: 'fetching-links',
-  LINKS: 'links',
-  FETCH_LINKS_SUCCESS: 'fetch-links-success',
-  FETCH_LINKS_FAILURE: 'fetch-links-failure',
-  ADD_LINK: 'add-link',
-  UPDATE_LINK: 'update-link',
-  REMOVE_LINK: 'remove-link',
-  REPOSITION_LINKS: 'reposition-links'
-}
+  LINKS: "links",
+  FETCH_LINKS: "fetching-links",
+  FETCH_LINKS_SUCCESS: "fetch-links-success",
+  CREATE_LINK: "create-link",
+  CREATE_LINK_SUCCESS: "create-link-success",
+  UPDATE_LINK: "update-link",
+  UPDATE_LINK_SUCCESS: "update-link-success",
+  REMOVE_LINK: "remove-link",
+  REMOVE_LINK_SUCCESS: "remove-link-success",
+  REPOSITION_LINK: "reposition-link",
+  REPOSITION_LINK_SUCCESS: "reposition-link-success",
+  LINKS_REQUEST_FAILURE: "links-request-failure"
+};

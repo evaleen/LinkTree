@@ -1,60 +1,86 @@
 import actions from "./actionTypes";
-import { getLinks } from "./api.js";
+import {
+  getLinks,
+  addLink,
+  updateLink,
+  removeLink,
+  repositionLink
+} from "./api.js";
 
-function fetchingLinks() {
+const fetchingLinks = () => {
   return {
-    type: actions.FETCHING_LINKS
+    type: actions.FETCH_LINKS
   };
-}
+};
 
-function fetchLinksSuccess() {
+const fetchLinksSuccess = () => {
   return {
     type: actions.FETCH_LINKS_SUCCESS
   };
-}
+};
 
-function storeLinks(links) {
+const creatingLink = () => {
+  return {
+    type: actions.CREATE_LINK
+  };
+};
+
+const createLinkSuccess = () => {
+  return {
+    type: actions.CREATE_LINK_SUCCESS
+  };
+};
+
+const updatingLink = () => {
+  return {
+    type: actions.UPDATE_LINK
+  };
+};
+
+const updateLinkSuccess = () => {
+  return {
+    type: actions.UPDATE_LINK_SUCCESS
+  };
+};
+
+const removingLink = () => {
+  return {
+    type: actions.REMOVE_LINK
+  };
+};
+
+const removeLinkSuccess = index => {
+  return {
+    type: actions.REMOVE_LINK_SUCCESS,
+    index
+  };
+};
+
+const repositioningLink = () => {
+  return {
+    type: actions.REPOSITION_LINK
+  };
+};
+
+const repositionLinkSuccess = () => {
+  return {
+    type: actions.REPOSITION_LINK_SUCCESS
+  };
+};
+
+const storeLinks = links => {
   return {
     type: actions.LINKS,
     links
   };
-}
+};
 
-function fetchLinksFail(error) {
+function linksRequestFail(error) {
   return {
-    type: actions.FETCH_LINKS_FAILURE,
+    type: actions.LINKS_REQUEST_FAILURE,
     error
   };
 }
-
-const addLink = link => {
-  return {
-    type: actions.ADD_LINK,
-    link
-  };
-};
-
-const updateLink = (link, index) => {
-  return {
-    type: actions.UPDATE_LINK,
-    link,
-    index
-  };
-};
-
-const removeLink = index => {
-  return {
-    type: actions.REMOVE_LINK,
-    index
-  };
-};
-
-const repositionLinks = links => {
-  return {
-    type: actions.REPOSITION_LINKS,
-    links
-  };
-};
 
 export const fetch = () => {
   return dispatch => {
@@ -65,73 +91,63 @@ export const fetch = () => {
         dispatch(storeLinks(links));
       })
       .catch(({ status }) => {
-        dispatch(fetchLinksFail(status));
+        dispatch(linksRequestFail(status));
       });
   };
 };
 
-export function create(links) {
-  let id = links.length === 0 ? 0 :
-    links.reduce(({ id }, highest) => {
-      return highest < id ? id : highest;
-    }).id + 1;
-  const position = links.length === 0 ? 0 : links[links.length - 1].position + 1;
-  const newLink = {
-    id,
-    deleted: 0,
-    active: 1,
-    highlight: "wobble",
-    unsafe: 1,
-    url: "",
-    title: "",
-    position,
-    account: {},
-    schedule_start: "",
-    schedule_start_timezone: "",
-    schedule_end: "",
-    schedule_end_timezone: "",
-    clicks: [],
-    click_count: 0,
-    created_at: new Date().toString()
-  };
+export const create = links => {
   return dispatch => {
-    dispatch(addLink(newLink));
+    dispatch(creatingLink());
+    addLink(links)
+      .then(links => {
+        dispatch(createLinkSuccess());
+        dispatch(storeLinks(links));
+      })
+      .catch(({ status }) => {
+        dispatch(linksRequestFail(status));
+      });
   };
-}
+};
 
-export function update(links, id, updates) {
-  const index = links.findIndex(link => {
-    return link.id === id;
-  });
+export const update = (links, id, updates) => {
   return dispatch => {
-    if (index >= 0) {
-      dispatch(updateLink({ ...links[index], ...updates }, index));
-    }
+    dispatch(updatingLink());
+    updateLink(links, id, updates)
+      .then(links => {
+        dispatch(updateLinkSuccess());
+        dispatch(storeLinks(links));
+      })
+      .catch(({ status }) => {
+        dispatch(linksRequestFail(status));
+      });
   };
-}
+};
 
-export function remove(links, id) {
-  const index = links.findIndex(link => {
-    return link.id === id;
-  });
+export const remove = (links, id) => {
   return dispatch => {
-    if (index >= 0) {
-      dispatch(removeLink(index));
-    }
+    dispatch(removingLink());
+    removeLink(links, id)
+      .then(links => {
+        dispatch(removeLinkSuccess());
+        dispatch(storeLinks(links));
+      })
+      .catch(({ status }) => {
+        dispatch(linksRequestFail(status));
+      });
   };
-}
+};
 
-export function reposition(links, prevIndex, newIndex) {
-  const clonedLinks = Array.from(links);
-  const [removed] = clonedLinks.splice(prevIndex, 1);
-  clonedLinks.splice(newIndex, 0, removed);
+export const reposition = (links, prevIndex, newIndex) => {
   return dispatch => {
-    dispatch(
-      repositionLinks(
-        clonedLinks.map((link, index) => {
-          return { ...link, position: index };
-        })
-      )
-    );
+    dispatch(repositioningLink());
+    repositionLink(links, prevIndex, newIndex)
+      .then(links => {
+        dispatch(repositionLinkSuccess());
+        dispatch(storeLinks(links));
+      })
+      .catch(({ status }) => {
+        dispatch(linksRequestFail(status));
+      });
   };
-}
+};
