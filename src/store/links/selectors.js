@@ -1,12 +1,11 @@
-
-export function getLinks(state) {
+export const getLinks = state => {
   return state.links.links;
-}
+};
 
-export function getStatus(state) {
+export const getStatus = state => {
   return state.links.status;
 }
 
-export function getError(state) {
+export const  getError = state => {
   return state.links.error;
 }

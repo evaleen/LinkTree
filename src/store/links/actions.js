@@ -75,7 +75,7 @@ const storeLinks = links => {
   };
 };
 
-function linksRequestFail(error) {
+const linksRequestFail = error => {
   return {
     type: actions.LINKS_REQUEST_FAILURE,
     error
