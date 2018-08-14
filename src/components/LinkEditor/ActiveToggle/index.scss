@@ -2,7 +2,8 @@
 
 $toggle-bg-width: 44px;
 $toggle-bg-height: 20px;
-$toggle-size: calc(#{$toggle-bg-height} - 2px);
+$toggle-border: 1px;
+$toggle-size: calc(#{$toggle-bg-height} - (#{$toggle-border} * 2));
 
 .active-toggle {
   display: flex;
@@ -41,15 +42,15 @@ $toggle-size: calc(#{$toggle-bg-height} - 2px);
   background-color: $white;
   transform: translateX(0);
   transition: transform 400ms ease-in;
-  margin-top: 1px;
+  margin-top: $toggle-border;
 
   &.on {
     transform: translateX(0);
-    margin-left: 1px;
+    margin-left: $toggle-border;
   }
 
   &.off {
-    transform: translateX(calc(#{$toggle-bg-width} - #{$toggle-size} - 1px));
-    margin-right: 1px;
+    transform: translateX(calc(#{$toggle-bg-width} - #{$toggle-size} - #{$toggle-border}));
+    margin-right: $toggle-border;
   }
 }

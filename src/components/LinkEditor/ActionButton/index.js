@@ -7,6 +7,7 @@ export default class ActionButton extends Component {
     const { onClick, type, isActive } = this.props;
     onClick(isActive ? undefined : type);
   };
+
   render() {
     const { type, isActive } = this.props;
     return (

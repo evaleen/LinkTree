@@ -47,7 +47,10 @@ export default class LinkInput extends Component {
             data-test="LinkInput-input"
           />
         ) : (
-          <div className="link-data-edit link-data-edit-text" data-test="LinkInput-text">
+          <div
+            className="link-data-edit link-data-edit-text"
+            data-test="LinkInput-text"
+          >
             {value ? value : placeholder}
           </div>
         )}

@@ -33,7 +33,10 @@ export default class ActionContent extends Component {
   render() {
     const { content, action, isActive } = this.props;
     return (
-      <div className={`action-content ${!isActive && 'hide'}`} data-test="ActionContent">
+      <div
+        className={`action-content ${!isActive && "hide"}`}
+        data-test="ActionContent"
+      >
         <div className="action-content-header" data-test="ActionContent-header">
           <h5>{content.title}</h5>
           <button
